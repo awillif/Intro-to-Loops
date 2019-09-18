@@ -1,0 +1,71 @@
+html {
+    background-color: rgb(241, 249, 255)
+}
+.names {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 2%;
+}
+
+img {
+    padding-top: .75%;
+    padding-left: 1%;
+}
+
+.introduction {
+    display: block;
+    text-align: center;
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+.circles {
+    display: inline-block;
+    padding-left: 10em;
+}
+
+.increasing {
+    display: inline-block;
+    text-align: center;
+    
+    padding-top: 2em;
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+button {
+    float: center;
+    color: aliceblue;
+    background-color: rgba(87, 123, 223, 0.829);
+    border: none;
+    padding: .5em;
+}
+
+strong {
+    font-size: 22px;
+}
+
+.decreasing {
+    display: inline-block;
+    text-align: center;
+    
+    padding-top: 2em;
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+.summation {
+    display: block;
+    text-align: center;
+    
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2em;
+    width: 75%;
+}
+
+.summation .sum {
+    font-size: 20px;
+}

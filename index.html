@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EF Design Project</title>
+        <link href = "style.css" type = "text/css" rel = "stylesheet" />
+        <link rel="shortcut icon" type="image/png" href="/faviconhula.png"/>
+    </head>
+
+    <body>
+        <div id = "header">
+            <img img src = "hula.png" alt = "Logo cl" align = "left"> 
+            <p class = "names"> <b>A217 Group 3: <br>Camille Williford<br> Paul Attle<br> Pei Lin</b></p>
+        </div>
+
+        <div class = "introduction">
+            <h2>Looping Application</h2>
+            <p>Loops are a very important component of programming, and affect many aspects of everyday life as a consequence. Loops can be used in calculations such as factorials and summation, or as a basic user interface to repeat a task. They are used for almost every repetitive task in programming needs, and simplify code to be more easily understood. 
+            </p>
+        </div>
+
+        <span class = "circles">
+            <span class = "increasing">
+                <p><strong>Increasing</strong> <br>
+                This is a visual example of a loop that increases the area of a circle by increasing<br> the radius of the circle every time the loop runs. The radius in this example is<br> called the index or counter that updates each iteration of the loop. In the code<br> below r is the radius which will start at the value one and end at the value ten.<br> The statement r++ will add one to the radius before the next loop executes.<br> The area of the circle is computed in every loop with the new radius and<br> printed to the screen. This means you visualize the loop increasing the<br> area of a circle incrementally.</p>
+                <p>for (int r = 1; r <= 10; r++) {<br>   Area = &#960;r<sup>2</sup>;}</p>
+                <p id = "index1"><i>Index</i></p>
+                <button id="myBtn">Create circle</button><button id="exp"> Expand</button><button id="reset">Reset</button>
+                <script>btn = document.getElementById("myBtn");
+                
+                    btn.onclick = function setup(){
+                    document.getElementById("holder").innerHTML = '<canvas id="myCanvas" width="250" height="250"></canvas>';
+                    circle1();
+                    }
+                    var radiusinc = 15
+                    var counter = 0;
+                    exp = document.getElementById("exp");
+                    exp.onclick = function Goal(){
+                    if(radiusinc < 95){radiusinc = radiusinc + 8;
+                    counter = counter + 1;
+                    document.getElementById("index1").innerHTML = counter;
+                    circle1();}
+                    else{ radiusinc = 95}
+                    }
+                    reset.onclick = function resize(){
+                        radiusinc = 15;
+                        counter = 0;
+                        document.getElementById("index1").innerHTML = "Index";
+                        document.getElementById("holder").innerHTML = '<canvas id="myCanvas" width="250" height="250"></canvas>';
+                    circle1();
+                    }
+                    function circle1() {
+                        var canvas = document.getElementById('myCanvas');
+                        var context = canvas.getContext('2d');
+                        var centerX = canvas.width / 2;
+                        var centerY = canvas.height / 2;
+
+                        context.beginPath();
+                        context.arc(centerX, centerY, radiusinc, 0, 2 * Math.PI, false);
+                        context.fillStyle = 'orange';
+                        context.fill();
+                        context.lineWidth = 2;
+                        context.strokeStyle = '#123456';
+                        context.stroke();
+                }</script>
+                <div id="holder"></div>
+            </span>
+
+            <span class = "decreasing">
+                <p><strong>Decreasing</strong> <br>
+                This example of a loop decreases the area of a circle by decreasing the radius <br>of the circle every time the loop runs. The process of decreasing the index<br> every iteration is called decrementing the radius, and is called incrementing<br> the radius when the index increase as in the previous example. In the code<br> below r is the radius which will start at the value ten and end at the value<br> one. The statement r-- will subtract one from the radius before the next<br> loop executes. The area of the circle is computed in each loop and<br> printed to the screen.</p>
+                <p>for (int r = 10; r <= 1; r--) {<br>   Area = &#960;r<sup>2</sup>;}</p>
+                <p id = "index2"><i>Index</i></p>
+                <button id="create">Create circle</button><button id="dec">Decrease</button><button id="res">Reset</button>
+                <script>butn=document.getElementById("create");
+                        butn.onclick= function open(){
+                            document.getElementById("space").innerHTML = '<canvas id="Canvas" width= "250" height= "250"></canvas>';
+                            circle();
+                        }
+                        var radiusdec = 95
+                        var ind2 = 0;
+                        dec = document.getElementById("dec");
+                        dec.onclick = function resize(){
+                            if( radiusdec > 15){
+                            document.getElementById("space").innerHTML = '<canvas id="Canvas" width= "250" height= "250"></canvas>';
+                            radiusdec = radiusdec - 8;
+                            ind2 = ind2+1;
+                            document.getElementById("index2").innerHTML = ind2;
+                            circle();}
+                            else{ radiusdec = 15}
+                            document.getElementById("index2").innerHTML = ind2;
+                        }
+                        res.onclick = function reset(){
+                            radiusdec = 95;
+                            ind2 = 0;
+                            document.getElementById("index2").innerHTML = "Index";
+                            document.getElementById("space").innerHTML = '<canvas id="Canvas" width="250" height="250"></canvas>';
+                            circle();
+                        }
+                        function circle(){
+                            var canvas = document.getElementById('Canvas');
+                        var context = canvas.getContext('2d');
+                        var centerX = canvas.width / 2;
+                        var centerY = canvas.height / 2;
+
+                        context.beginPath();
+                        context.arc(centerX, centerY, radiusdec, 0, 2 * Math.PI, false);
+                        context.fillStyle = 'orange';
+                        context.fill();
+                        context.lineWidth = 2;
+                        context.strokeStyle = '#123456';
+                        context.stroke();
+                        }
+                </script>
+                <div id="space"></div>
+            </span>
+        </span>
+
+        <div class = "summation">
+            <p><strong>Summation</strong> <br>
+            Loops handle some of the most basic user interfaces, calculations, and data sorting, which are integral to everday programming. In fact, for this application there is a loop that will let the user click the index button until the last index value, specified in the loop, is reached. The two examples above are purely visual, but this example shows how you can use a loop in calculations, which is far more relavent to real world programming. The counter starts at one and ends at ten like the examples above, but this time the counter, num in this case, is added to a sum. In the next loop the counter is added to the sum from the previous iteration, and kept as the new value of the sum. By the end sum = 1 + 2 + 3+ 4 + 5 + 6 + 7 + 8 + 9 + 10.</p>
+            <p>for (int num = 1; num <= 10; num++) {<br>     sum = sum + num;}</p>
+            <p p id = "ind"><i>Index</i></p>
+            <p id = "sum"><i>Sum</i></p>
+            <button id="Sum">Sum</button><button id = "restart">Restart</button>
+            <script>
+            var num = 1;
+            var tot = 0;
+            prob =document.getElementById("Sum");
+            prob.onclick = function add(){
+                if(num <= 10){
+                tot = tot + num;
+                num = num + 1;
+                document.getElementById("sum").innerHTML = tot;
+                document.getElementById("ind").innerHTML = num - 1;
+                }
+                else{ tot = 0;}
+            }
+            rest = document.getElementById("restart");
+            rest.onclick = function rep(){
+                tot = 0;
+                num = 1;
+                document.getElementById("sum").innerHTML = tot;
+                document.getElementById("ind").innerHTML = "Index";
+            }
+            </script>
+        </div>
+    </body>
